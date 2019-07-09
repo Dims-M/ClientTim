@@ -13,11 +13,16 @@ namespace ClientV
     {
         static void Main(string[] args)
         {
-
+            connectionsClient();
+            Console.ReadKey();
         }
 
-        private  void connectionsClient()
+        private static void connectionsClient()
         {
+            try
+            {
+
+            
             //Соединение с сервером
             IPAddress address = IPAddress.Parse(Properties.Settings.Default.IP);
             int port = int.Parse( Properties.Settings.Default.Port);
@@ -53,7 +58,11 @@ namespace ClientV
                 }
 
             }
-
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ахтунг \t\n"+ ex);
+            }
         }
     }
 }

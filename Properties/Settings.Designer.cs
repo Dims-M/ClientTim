@@ -34,7 +34,7 @@ namespace ClientV.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("19131")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8080")]
         public string Port {
             get {
                 return ((string)(this["Port"]));
